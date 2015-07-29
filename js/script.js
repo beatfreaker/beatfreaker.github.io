@@ -11,7 +11,7 @@ $(document).ready(function(){
 	var index=0;
 	var maxIndex = 9;
 	var zeroCount = 1;
-	var delay = 200;
+	var delay = 300;
 
 	function animateText(curr, prev) {
 		if(prev != "undefined" && prev > 0 && prev <= maxIndex) {
