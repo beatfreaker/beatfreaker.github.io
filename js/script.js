@@ -11,19 +11,7 @@ $(document).ready(function(){
 	var index=0;
 	var maxIndex = 9;
 	var zeroCount = 1;
-	var delay = 500;
-	function startAnimation() {
-			if($("ul li:nth-child("+index+")").hasClass("white")) {
-				$("ul li:nth-child("+index+")").removeClass("white");
-			} else {				
-				$("ul li:nth-child("+index+")").addClass("white");
-			}
-			index++;
-			if(index > maxIndex) {
-				index = 1;
-			}
-			setTimeout(startAnimation,1000);
-	}
+	var delay = 200;
 
 	function animateText(curr, prev) {
 		if(prev != "undefined" && prev > 0 && prev <= maxIndex) {
@@ -62,7 +50,6 @@ $(document).ready(function(){
 			count++;
 		}
 	}
-	//startAnimation();
 	initiateOpacity();
 	animateText(typingIndex[index],typingIndex[index-1]);
 });
