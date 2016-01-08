@@ -79,49 +79,4 @@
 </body>
 <script src="js/jquery-1.10.1.min.js"></script>
 <script src="js/script.js"></script>
-<script>
-	var downloadSub = function(hashVal) {
-      $.ajax({
-        method: 'GET',
-        url: 'http://api.thesubdb.com',
-        data: {action: 'download', hash: hashVal, language: 'en'},
-        beforeSend: function (req) {
-                    req.setRequestHeader('User-Agent', 'SubDB/1.0');
-                },
-        dataType: 'jsonp',
-        xhr: function()
-        {
-          var xhr = new window.XMLHttpRequest();
-          //Download progress
-          xhr.addEventListener("progress", function(evt){
-            if (evt.lengthComputable) {
-              var percentComplete = evt.loaded / evt.total;
-              //Do something with download progress
-              console.log(percentComplete);
-            }
-          }, false);
-          return xhr;
-        },
-        xhrFields: {
-    // The 'xhrFields' property sets additional fields on the XMLHttpRequest.
-    // This can be used to set the 'withCredentials' property.
-    // Set the value to 'true' if you'd like to pass cookies to the server.
-    // If this is enabled, your server must respond with the header
-    // 'Access-Control-Allow-Credentials: true'.
-    withCredentials: false
-  },
-        success: function(data){
-          //Do something success-ish
-        }
-      })
-      .done(function(data) {
-        console.log('completed :: ' + data);
-      })
-      .fail(function(jqXRH, status, err) {
-        
-        console.log(err);
-      });
-    };
-    downloadSub('ffd8d4aa68033dc03d1c8ef373b9028c');
-</script>
 </html>
